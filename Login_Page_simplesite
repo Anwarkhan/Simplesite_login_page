@@ -1,0 +1,24 @@
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+import java.util.concurrent.TimeUnit;
+
+
+public class Login_Page_simplesite {
+
+    public static void main(String[] args) {
+
+        // Chrome class object
+        System.setProperty("webdriver.chrome.driver", "C:\\chromedriver.exe");
+        WebDriver driver = new ChromeDriver();
+        driver.get("https://www.simplesite.com/pages/service-login.aspx");
+
+        driver.findElement (By.id("cb-ok")).click(); //click cookies ok button
+        driver.findElement(By.id("loginBox_username")).sendKeys("anwartest"); // insert user name
+        driver.findElement(By.id("loginBox_password")).sendKeys("AnwarTest1"); // insert password
+        driver.manage().timeouts().implicitlyWait(15, TimeUnit.SECONDS); // giving time for the page to load
+        driver.findElement(By.id("loginBox_loginbtn")).click(); // click on logind button
+        
+
+    }
+}
